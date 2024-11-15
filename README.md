@@ -1,2 +1,72 @@
-# Folder_Synchronization_Script
-This Python program syncs a source folder with a replica folder, ensuring the replica matches the source by copying, updating, or removing files. It creates dummy files if the source is empty and logs all actions in both the console and a log.txt file. The program runs indefinitely, syncing periodically.
+
+# Folder Synchronization Script
+
+This Python script synchronizes two folders: `source` and `replica`. The `replica` folder is updated to become an identical copy of the `source` folder, ensuring one-way synchronization. The script runs periodically, copying, updating, or removing files in the `replica` folder to match the `source` folder. All file operations are logged to both the console and a log file.
+
+## Features
+
+- **One-way Synchronization**: The content of the `replica` folder is updated to match the `source` folder.
+- **Periodic Execution**: The synchronization is performed at regular intervals (default: every 10 seconds).
+- **File Operations Logging**: All file creation, copying, updating, and removal actions are logged in `log.txt` and displayed in the console.
+- **Automatic Dummy File Creation**: If the `source` folder is empty, a variety of dummy files are generated for testing purposes.
+
+## Requirements
+
+- **Python 3.x**: Ensure Python is installed on your system. You can download it from [python.org](https://www.python.org).
+
+## Usage
+
+### 1. Setup
+1. Clone this repository or copy the script to your local machine.
+2. Create a directory named `source` in the same folder as the script. The script will also create a `replica` directory automatically if it doesn't exist.
+3. Ensure the `source` folder is empty initially to see the dummy files created.
+
+### 2. Run the Script
+Run the script using the following command in your terminal or command prompt:
+```bash
+python script_name.py
+```
+
+> Replace `script_name.py` with the actual name of your script file.
+
+### 3. Stopping the Script
+The script runs continuously. To stop it, use `Ctrl + C` in the terminal or close the command prompt.
+
+## File Structure
+
+- **source/**: The folder where the original files are located. The script will create dummy files here if it's empty.
+- **replica/**: The folder that will be synchronized to match the `source` folder.
+- **log.txt**: A file where all synchronization operations are logged.
+
+## Logging
+
+All file operations are logged in `log.txt`. Each entry includes a description of the action performed, such as:
+- File creation
+- File copying or updating
+- File or directory removal
+
+### Example Log Entry
+```
+Created file: C:\path\to\source\dummy1.txt
+Copied/Updated file: C:\path\to\source\dummy1.txt to C:\path\to\replica\dummy1_replica.txt
+Removed file: C:\path\to\replica\old_file_replica.txt
+```
+
+## Configuration
+
+### Synchronization Interval
+The synchronization interval is set to 10 seconds by default. You can change this value by modifying the `interval` variable in the script.
+
+### Adding More File Types
+The script creates a variety of dummy files for testing purposes. You can customize or add more file types in the `create_dummy_files` function.
+
+## Limitations
+
+- The script does not support two-way synchronization. Changes made in the `replica` folder are not propagated back to the `source`.
+- The program does not handle large folders with complex directory structures efficiently. Consider optimizations for such use cases.
+
+## Future Improvements
+
+- Add command-line arguments for better customization (e.g., paths, interval).
+- Implement better handling for large file operations.
+- Add support for logging timestamps for each operation.
