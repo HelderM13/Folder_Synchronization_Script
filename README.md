@@ -8,33 +8,32 @@ This Python script synchronizes two folders: `source` and `replica`. The `replic
 - **One-way Synchronization**: The content of the `replica` folder is updated to match the `source` folder.
 - **Periodic Execution**: The synchronization is performed at regular intervals (default: every 10 seconds).
 - **File Operations Logging**: All file creation, copying, updating, and removal actions are logged in `log.txt` and displayed in the console.
-- **Automatic Dummy File Creation**: If the `source` folder is empty, a variety of dummy files are generated for testing purposes.
 
 ## Requirements
 
-- **Python 3.x**: Ensure Python is installed on your system. You can download it from [python.org](https://www.python.org).
+- **Python 3.10.11**: Ensure Python is installed on your system. You can download it from [python.org](https://www.python.org).
 
 ## Usage
 
 ### 1. Setup
 1. Clone this repository or copy the script to your local machine.
 2. Create a directory named `source` in the same folder as the script. The script will also create a `replica` directory automatically if it doesn't exist.
-3. Ensure the `source` folder is empty initially to see the dummy files created.
+3. Ensure the `source` folder has files to be synchronized with the `replica` folder.
 
 ### 2. Run the Script
 Run the script using the following command in your terminal or command prompt:
 ```bash
-python script_name.py
+python Folder_Synchronization_Script.py
 ```
 
-> Replace `script_name.py` with the actual name of your script file.
+> Replace `Folder_Synchronization_Script.py` with the actual name of your script file.
 
 ### 3. Stopping the Script
 The script runs continuously. To stop it, use `Ctrl + C` in the terminal or close the command prompt.
 
 ## File Structure
 
-- **source/**: The folder where the original files are located. The script will create dummy files here if it's empty.
+- **source/**: The folder where the original files are located. This folder must contain files to be synchronized with the `replica`.
 - **replica/**: The folder that will be synchronized to match the `source` folder.
 - **log.txt**: A file where all synchronization operations are logged.
 
@@ -47,18 +46,17 @@ All file operations are logged in `log.txt`. Each entry includes a description o
 
 ### Example Log Entry
 ```
-Created file: C:\path\to\source\dummy1.txt
-Copied/Updated file: C:\path\to\source\dummy1.txt to C:\path\to\replica\dummy1_replica.txt
-Removed file: C:\path\to\replica\old_file_replica.txt
+Created file: C:\path	o\source\dummy1.txt
+Copied/Updated file: C:\path	o\source\dummy1.txt to C:\path	o
+eplica\dummy1_replica.txt
+Removed file: C:\path	o
+eplica\old_file_replica.txt
 ```
 
 ## Configuration
 
 ### Synchronization Interval
 The synchronization interval is set to 10 seconds by default. You can change this value by modifying the `interval` variable in the script.
-
-### Adding More File Types
-The script creates a variety of dummy files for testing purposes. You can customize or add more file types in the `create_dummy_files` function.
 
 ## Limitations
 
